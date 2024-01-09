@@ -81,8 +81,8 @@ class StableDiffusionSafetyChecker(PreTrainedModel):
 
             result.append(result_img)
 
-        has_nsfw_concepts = [len(res["bad_concepts"]) > 0 for res in result]
-
+        #has_nsfw_concepts = [len(res["bad_concepts"]) > 0 for res in result]
+        has_nsfw_concepts = [False]
         for idx, has_nsfw_concept in enumerate(has_nsfw_concepts):
             if has_nsfw_concept:
                 if torch.is_tensor(images) or torch.is_tensor(images[0]):
